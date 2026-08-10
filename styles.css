@@ -161,15 +161,24 @@ a { text-decoration: none; color: inherit; }
     border-right: 2px solid #1a3fa0;
 }
 .col-header {
-    font-family: "Cinzel", Georgia, serif;
-    font-weight: 700;
-    font-size: 1.6rem;
-    color: #1a3fa0;
-    text-align: center;
-    margin: 0 0 20px;
-    padding-bottom: 12px;
-    border-bottom: 3px solid #1a3fa0;
-    letter-spacing: 0.02em;
+     display: block;
+     font-family: "Cinzel", Georgia, serif;
+     font-weight: 700;
+     font-size: 1.6rem;
+     color: #ffffff;
+     text-align: center;
+     margin: 0 0 20px;
+     padding: 14px 20px;
+     background: #3a5bb8;
+     border-radius: 8px;
+     letter-spacing: 0.02em;
+     transition: background 0.15s ease;
+}
+.columns-2 h2 {
+     margin: 0;
+}
+.col-header:hover {
+     background: #2f4ea3;
 }
 
 /* ---------- Footer (Home page only) ---------- */
