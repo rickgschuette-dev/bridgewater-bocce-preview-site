@@ -60,6 +60,11 @@ a { text-decoration: none; color: inherit; }
 .tab-strip a.travel      { background: #4a5568; }
 .tab-strip a.active      { border-bottom: 3px solid #fff; font-weight: 800; }
 
+.reg-tabs a {
+  font-size: 11px;
+  padding: 8px 4px;
+}
+
 /* ---------- Home page banner with bocce-ball nav ---------- */
 
 .home-banner {
@@ -269,6 +274,7 @@ table.standings tr:nth-child(even) td { background: #fafbfd; }
 .checkbox-row { display: flex; flex-wrap: wrap; gap: 22px; margin-bottom: 22px; align-items: center; }
 .checkbox-row label { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 400; margin-bottom: 0; }
 .checkbox-row input[type=checkbox] { width: 24px; height: 24px; }
+.checkbox-row input[type=radio] { width: 22px; height: 22px; }
 .day-grid { display: flex; gap: 14px; margin-bottom: 22px; }
 .day-grid .day { flex: 1; text-align: center; }
 .day-grid .day span { display: block; font-size: 15px; font-weight: 700; color: #3d3312; margin-bottom: 8px; }
