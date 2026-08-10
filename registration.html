@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+  <html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>League Registration — Bridgewater Bocce Club</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="mini-header">
+    <a href="/"><img src="logo_small.jpg" alt="Bridgewater Bocce Club logo"></a>
+      <div class="site-name">Bridgewater Bocce</div>
+    </div>
+    <div class="tab-strip">
+      <a class="league-reg active" href="/registration">League Registration</a>
+      <a class="teams" href="/teams">Teams</a>
+      <a class="schedule" href="/schedule">Schedule</a>
+      <a class="results" href="/results">Results &amp; Standings</a>
+      <a class="clinics" href="/clinics">Clinics &amp; Classes</a>
+
+    </div>
+
+    <div class="home-banner" style="min-height:130px;">
+      <div class="logo-cell" style="width:120px;"><img src="logo_small.jpg" alt="Bridgewater Bocce Club logo" style="max-height:100px;"></div>
+      <div class="tagline-cell" style="padding:20px 14px;">
+        <div style="font-family:Arial,Helvetica,sans-serif;font-style:normal;font-size:26px;font-weight:800;color:#fff;line-height:1.2;">Fall Recreation League<br>Registration Form</div>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <p style="font-size:17px;line-height:1.6;margin:0 0 10px;">The Bridgewater Bocce Fall Recreation League is set to begin play on Monday afternoon, October 5th.</p>
+      <p style="font-size:17px;font-weight:700;line-height:1.6;margin:0 0 16px;">All games on Mondays will start at 4:00 pm.</p>
+
+      <div class="notice-box">
+        <strong>Weather Notice:</strong> In the event of inclement weather, scheduled games may be postponed or cancelled. Updates will be communicated to registered participants as soon as possible.
+      </div>
+
+      <!-- FORM 1: League Registration -->
+      <form class="form-block green" name="registration" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-thankyou="ty-registration">
+        <input type="hidden" name="form-name" value="registration">
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <h2>League Registration</h2>
+
+        <label for="reg-first">First Name</label>
+        <input type="text" id="reg-first" name="First Name" required="">
+
+        <label for="reg-last">Last Name</label>
+        <input type="text" id="reg-last" name="Last Name" required="">
+
+        <label for="reg-email">Email Address</label>
+        <input type="email" id="reg-email" name="Email Address" required="">
+
+        <label for="reg-phone">Text Number</label>
+        <input type="tel" id="reg-phone" name="Text Number" required="">
+
+      <label for="reg-phone2">Confirm Text Number</label>
+      <input type="tel" id="reg-phone2" name="Confirm Text Number" required="">
+
+        <div class="checkbox-row" style="flex-direction:column;align-items:flex-start;gap:10px;">
+          <label style="font-weight:700;margin-bottom:4px;">Have you played in the BW Rec League previously?</label>
+          <div class="checkbox-row">
+            <label><input type="checkbox" name="Played Previously" value="Yes"> Yes</label>
+            <label><input type="checkbox" name="Played Previously" value="No, I am new"> No, I am new</label>
+            <label><input type="checkbox" name="Played Previously" value="No, but I play often"> No, but I play often</label>
+          </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    <div class="thank-you" id="ty-registration">
+        <h2>Thank You!</h2>
+      <p>We will contact you with further information as we draw closer to the start of the schedule.</p>
+      </div>
+
+      <!-- FORM 2: We Are Adding A Day -->
+      <form class="form-block yellow" name="day-preference" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-thankyou="ty-daypref">
+      <input type="hidden" name="form-name" value="day-preference">
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <h2>We May Need To Add A Day</h2>
+      <p style="font-size:16px;color:#3d3312;line-height:1.6;margin:0 0 10px;">To accommodate the growing number of participants, we may need to split our weekly schedule across two afternoons.</p>
+        <p style="font-size:16px;font-weight:700;color:#3d3312;line-height:1.6;margin:0 0 16px;">Your team will only be scheduled to play one of the two afternoons each week.</p>
+      <p style="font-size:16px;color:#3d3312;line-height:1.6;margin:0 0 10px;">Place a number 1 in the box beneath the additional day that would work best for you. Place a number 2 beneath your next choice.</p>
+        <p style="font-size:16px;font-weight:700;color:#3d3312;line-height:1.6;margin:0 0 18px;">If there is any day that absolutely will not work for you, place an X in that box.</p>
+
+        <div class="day-grid">
+          <div class="day"><span>Tuesday</span><input type="text" name="Tuesday" maxlength="1"></div>
+          <div class="day"><span>Wednesday</span><input type="text" name="Wednesday" maxlength="1"></div>
+          <div class="day"><span>Thursday</span><input type="text" name="Thursday" maxlength="1"></div>
+          <div class="day"><span>Friday</span><input type="text" name="Friday" maxlength="1"></div>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+      <div class="thank-you" id="ty-daypref">
+        <h2>Thank You!</h2>
+        <p>We will contact you with further information as we draw closer to the start of the schedule.</p>
+    </div>
+
+    <div class="home-link-row"><a href="/">HOME</a></div>
+  </div>
+
+</div>
+
+<script>
+document.querySelectorAll('form[data-netlify]').forEach(function(form){
+  form.addEventListener('submit', function(e){
+        e.preventDefault();
+    var data = new URLSearchParams(new FormData(form)).toString();
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data })
+            .then(function(){
+              form.style.display = 'none';
+        var ty = document.getElementById(form.getAttribute('data-thankyou'));
+        if (ty) ty.classList.add('show');
+    })
+      .catch(function(){
+        alert('There was a problem submitting the form. Please check your connection and try again.');
+        });
+  });
+});
+</script>
+
+
+  </body></html>
+  
