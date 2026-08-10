@@ -1,0 +1,310 @@
+/* Bridgewater Bocce Club — shared site styles */
+
+  * { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #222222;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #ffffff;
+}
+
+/* ---------- Global mini header + flat tab strip (used on all inner pages) ---------- */
+
+.mini-header {
+    background: #1a3fa0;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.mini-header img {
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.mini-header .site-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.tab-strip {
+    display: flex;
+    flex-wrap: wrap;
+}
+.tab-strip a {
+    flex: 1;
+    min-width: 16%;
+    text-align: center;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 12px 4px;
+}
+.tab-strip a.league-reg  { background: #1f7a4d; }
+.tab-strip a.teams       { background: #c9601c; }
+.tab-strip a.schedule    { background: #7a3fa0; }
+.tab-strip a.results     { background: #b8321f; }
+.tab-strip a.clinics     { background: #b8901a; }
+.tab-strip a.travel      { background: #4a5568; }
+.tab-strip a.active      { border-bottom: 3px solid #fff; font-weight: 800; }
+
+/* ---------- Home page banner with bocce-ball nav ---------- */
+
+.home-banner {
+    background: #1a3fa0;
+    display: flex;
+    align-items: stretch;
+    min-height: 190px;
+}
+.home-banner .logo-cell {
+    width: 150px;
+    background: #3a5bb8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 10px;
+}
+.home-banner .logo-cell img {
+    max-width: 100%;
+    max-height: 140px;
+    border-radius: 6px;
+}
+.home-banner .tagline-cell {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 14px;
+    text-align: center;
+}
+.home-banner .tagline {
+    font-family: 'Brush Script MT', 'Segoe Script', cursive;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 32px;
+    color: #ffffff;
+}
+
+.ball-row {
+    background: #ffffff;
+    padding: 10px 14px 16px;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 8px;
+}
+.ball-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 18%;
+}
+.ball {
+    position: relative;
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    box-shadow: 0 5px 8px rgba(0,0,0,0.25), inset 0 2px 4px rgba(255,255,255,0.3);
+}
+.ball.league-reg { background: radial-gradient(circle at 32% 28%, #3fae63, #1f7a4d 55%, #14532d 100%); }
+.ball.teams       { background: radial-gradient(circle at 32% 28%, #e88a4a, #c9601c 55%, #93470f 100%); }
+.ball.schedule     { background: radial-gradient(circle at 32% 28%, #a463c9, #7a3fa0 55%, #522a6b 100%); }
+.ball.results       { background: radial-gradient(circle at 32% 28%, #dd5a45, #b8321f 55%, #7e2010 100%); }
+.ball.clinics       { background: radial-gradient(circle at 32% 28%, #e8c34a, #b8901a 55%, #7d5f0f 100%); }
+.ball.travel         { background: radial-gradient(circle at 32% 28%, #7c8697, #4a5568 55%, #2e3644 100%); }
+
+.ball svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ball .label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    font-weight: 800;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.15;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* ---------- Home page body: two columns ---------- */
+
+.home-body { padding: 26px 24px 10px; }
+
+.columns-2 {
+    display: flex;
+    gap: 0;
+    align-items: stretch;
+}
+.columns-2 .col {
+    flex: 1;
+    padding: 6px 32px 30px;
+}
+.columns-2 .col-left {
+    border-right: 2px solid #1a3fa0;
+}
+.col-header {
+    font-family: "Cinzel", Georgia, serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #1a3fa0;
+    text-align: center;
+    margin: 0 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #1a3fa0;
+    letter-spacing: 0.02em;
+}
+
+/* ---------- Footer (Home page only) ---------- */
+
+.site-footer {
+    padding: 20px 22px;
+    margin-top: 20px;
+    border-top: 3px solid #173404;
+    background: #f7f8f5;
+}
+.site-footer p { font-size: 14px; color: #444440; line-height: 1.6; margin: 0 0 12px; }
+.site-footer p:last-child { margin-bottom: 0; color: #222220; }
+
+/* ---------- Generic page content ---------- */
+
+.page-content { padding: 22px 24px 40px; }
+.page-title { font-size: 24px; font-weight: 800; color: #1a3fa0; margin: 0 0 6px; }
+.page-subtitle { font-size: 14px; color: #8891a3; margin: 0 0 20px; }
+
+.notice-box {
+    background: #f3f6ff;
+    border-left: 4px solid #1a3fa0;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin: 0 0 22px;
+    font-size: 15px;
+    color: #333;
+    line-height: 1.55;
+}
+
+/* Roster grid (Teams page) */
+.roster-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.roster-card { background: #f3f6ff; border-radius: 8px; padding: 14px 16px; }
+.roster-card h3 { font-size: 16px; color: #1a3fa0; margin: 0 0 8px; }
+.roster-card p { font-size: 13px; color: #333; line-height: 1.7; margin: 0; }
+
+/* Schedule page */
+.night-block { border-radius: 10px; padding: 16px 18px; margin-bottom: 18px; }
+.night-block.monday { background: #f3f6ff; }
+.night-block.thursday { background: #fdf1e8; }
+.night-block h2 { font-size: 18px; margin: 0 0 4px; }
+.night-block .teams-list { font-size: 13px; color: #5a6478; margin-bottom: 12px; }
+.night-block .rounds { font-size: 14px; color: #222; line-height: 1.9; }
+
+/* Results & Standings */
+.results-box { background: #fdeceb; border-radius: 10px; padding: 16px 18px; margin-bottom: 22px; }
+.results-box h2 { font-size: 17px; color: #b8321f; margin: 0 0 10px; }
+.results-box .day-label { font-size: 12px; font-weight: 700; color: #8891a3; margin-bottom: 4px; }
+.results-box .day-results { font-size: 14px; color: #222; line-height: 1.75; margin-bottom: 10px; }
+table.standings { width: 100%; border-collapse: collapse; font-size: 14px; }
+table.standings th { text-align: left; padding: 8px 10px; color: #1a3fa0; background: #f3f6ff; }
+table.standings td { padding: 6px 10px; }
+table.standings tr:nth-child(even) td { background: #fafbfd; }
+
+/* Home link (bottom of every interior page) */
+.home-link-row { text-align: center; margin-top: 30px; }
+.home-link-row a {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    background: #1a3fa0;
+    padding: 12px 28px;
+    border-radius: 8px;
+}
+
+/* Forms */
+.form-block { border-radius: 10px; padding: 20px 20px 24px; margin-bottom: 22px; }
+.form-block.green  { background: #d9f2e6; }
+.form-block.yellow { background: #fff3cc; }
+.form-block h2 { font-size: 20px; font-weight: 800; margin: 0 0 16px; }
+.form-block.green h2  { color: #14532d; }
+.form-block.yellow h2 { color: #7a5c00; }
+.form-block label { display: block; font-size: 16px; font-weight: 700; color: #1f2937; margin-bottom: 6px; }
+.form-block input[type=text],
+.form-block input[type=email],
+.form-block input[type=tel] {
+    width: 100%;
+    font-size: 18px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    border: 1.5px solid #9cc9ac;
+    font-family: inherit;
+}
+.form-block.yellow input { border-color: #d8b955; }
+.checkbox-row { display: flex; flex-wrap: wrap; gap: 22px; margin-bottom: 22px; align-items: center; }
+.checkbox-row label { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 400; margin-bottom: 0; }
+.checkbox-row input[type=checkbox] { width: 24px; height: 24px; }
+.day-grid { display: flex; gap: 14px; margin-bottom: 22px; }
+.day-grid .day { flex: 1; text-align: center; }
+.day-grid .day span { display: block; font-size: 15px; font-weight: 700; color: #3d3312; margin-bottom: 8px; }
+.day-grid .day input[type=text] {
+    width: 40px; height: 40px; margin: 0 auto; display: block;
+    text-align: center; font-size: 16px;
+    border: 2px solid #b8901a; border-radius: 8px; padding: 0;
+}
+.submit-btn {
+    display: block; width: 100%; text-align: center; font-size: 18px; font-weight: 800;
+    border-radius: 8px; padding: 13px; color: #fff; border: none; cursor: pointer; font-family: inherit;
+}
+.form-block.green .submit-btn  { background: #14532d; }
+.form-block.yellow .submit-btn { background: #7a5c00; }
+
+.thank-you {
+    background: #eef1f7; border-radius: 10px; padding: 18px 20px; display: none;
+}
+.thank-you.show { display: block; }
+.thank-you h2 { font-size: 19px; font-weight: 800; color: #1a3fa0; margin: 0 0 8px; }
+.thank-you p { font-size: 16px; color: #333; line-height: 1.6; margin: 0; }
+
+.coming-soon {
+    background: #eef0f3; border-radius: 10px; padding: 26px; text-align: center; margin-bottom: 14px;
+}
+.coming-soon span { font-size: 19px; font-weight: 800; color: #4a5568; }
+
+@media (max-width: 640px) {
+    .home-banner { flex-direction: column; min-height: 0; }
+    .home-banner .logo-cell { width: 100%; padding: 16px; }
+    .ball { width: 56px; height: 56px; }
+    .ball .label { font-size: 8px !important; }
+    .roster-grid { grid-template-columns: 1fr; }
+    .columns-2 { flex-direction: column; }
+    .columns-2 .col-left { border-right: none; border-bottom: 2px solid #1a3fa0; padding-bottom: 24px; margin-bottom: 14px; }
+}
+
+/* Added: large banner title matching logo crest font */
+.home-banner .tagline-cell { flex-direction: column; gap: 6px; }
+.home-banner .banner-title { font-family: "Cinzel", Georgia, serif; font-weight: 900; font-size: 2.6rem; letter-spacing: 0.04em; text-transform: uppercase; color: #ffffff; text-shadow: 1px 2px 6px rgba(0,0,0,0.45); line-height: 1.1; margin: 0; }
+@media (max-width: 600px) { .home-banner .banner-title { font-size: 1.5rem; } }
+
+.content-box { border: 2px solid #1a3fa0; border-radius: 8px; background: #ffffff; padding: 18px; display: flex; flex-direction: column; gap: 8px; text-align: left; }
+.content-box h3 { color: #1a3fa0; font-size: 1.05rem; margin: 0; line-height: 1.3; }
+.content-box p { font-size: 0.9rem; color: #444444; margin: 0; line-height: 1.5; }
+.content-box .box-link { color: #1a3fa0; font-weight: 700; text-decoration: none; font-size: 0.9rem; margin-top: 2px; }
+.content-box .box-link:hover { text-decoration: underline; }
+.content-box .box-logo { width: 100%; max-width: 160px; margin: 0 auto 4px auto; display: block; border-radius: 6px; }
