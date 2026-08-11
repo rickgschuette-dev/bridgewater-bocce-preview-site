@@ -53,6 +53,7 @@ a { text-decoration: none; color: inherit; }
     padding: 12px 4px;
 }
 .tab-strip a.league-reg  { background: #1f7a4d; }
+.tab-strip a.survey      { background: #1a7a8a; }
 .tab-strip a.teams       { background: #c9601c; }
 .tab-strip a.schedule    { background: #7a3fa0; }
 .tab-strip a.results     { background: #b8321f; }
@@ -153,16 +154,19 @@ a { text-decoration: none; color: inherit; }
 
 .home-body { padding: 26px 24px 10px; }
 
-.columns-2 {
+.columns-3 {
     display: flex;
     gap: 0;
     align-items: stretch;
 }
-.columns-2 .col {
+.columns-3 .col {
     flex: 1;
     padding: 6px 32px 30px;
 }
-.columns-2 .col-left {
+.columns-3 .col-left {
+    border-right: 2px solid #1a3fa0;
+}
+.columns-3 .col-mid {
     border-right: 2px solid #1a3fa0;
 }
 .col-header {
@@ -179,7 +183,7 @@ a { text-decoration: none; color: inherit; }
      letter-spacing: 0.02em;
      transition: background 0.15s ease;
 }
-.columns-2 h2 {
+.columns-3 h2 {
      margin: 0;
 }
 .col-header:hover {
@@ -265,6 +269,8 @@ table.standings tr:nth-child(even) td { background: #fafbfd; }
 .form-block { border-radius: 10px; padding: 20px 20px 24px; margin-bottom: 22px; }
 .form-block.green  { background: #d9f2e6; }
 .form-block.yellow { background: #fff3cc; }
+.gate-box { background: #f1f1f1; border-radius: 10px; padding: 18px 20px 22px; margin-bottom: 22px; }
+.gate-box label.gate-question { display: block; font-size: 16px; font-weight: 700; color: #1f2937; margin-bottom: 10px; }
 .form-block h2 { font-size: 20px; font-weight: 800; margin: 0 0 16px; }
 .form-block.green h2  { color: #14532d; }
 .form-block.yellow h2 { color: #7a5c00; }
@@ -324,8 +330,9 @@ table.standings tr:nth-child(even) td { background: #fafbfd; }
     .ball { width: 56px; height: 56px; }
     .ball .label { font-size: 8px !important; }
     .roster-grid { grid-template-columns: 1fr; }
-    .columns-2 { flex-direction: column; }
-    .columns-2 .col-left { border-right: none; border-bottom: 2px solid #1a3fa0; padding-bottom: 24px; margin-bottom: 14px; }
+    .columns-3 { flex-direction: column; }
+    .columns-3 .col-left { border-right: none; border-bottom: 2px solid #1a3fa0; padding-bottom: 24px; margin-bottom: 14px; }
+    .columns-3 .col-mid { border-right: none; border-bottom: 2px solid #1a3fa0; padding-bottom: 24px; margin-bottom: 14px; }
 }
 
 /* Added: large banner title matching logo crest font */
