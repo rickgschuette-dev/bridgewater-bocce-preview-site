@@ -71,6 +71,8 @@
         </div>
       </div>
 
+      <div class="confirm-error" style="display:none;color:#c0392b;font-weight:700;margin:14px 0 4px;padding:10px 12px;border:1px solid #c0392b;border-radius:6px;background:#fdecea;"></div>
+
       <button type="submit" class="submit-btn">Submit</button>
     </form>
     <div class="thank-you" id="ty-registration">
@@ -87,6 +89,45 @@
 document.querySelectorAll('form[data-netlify]').forEach(function(form){
   form.addEventListener('submit', function(e){
     e.preventDefault();
+
+    // --- Confirmation-field match check (Email Address / Text Number) ---
+    // The League Registration form asks for Email Address and Text Number
+    // twice each, but nothing previously checked that the two entries in
+    // each pair actually matched. This block compares them at submit time
+    // and blocks submission with an on-page message if they don't, rather
+    // than silently accepting mismatched data.
+    var email1 = form.querySelector('#reg-email');
+    var email2 = form.querySelector('#reg-email2');
+    var phone1 = form.querySelector('#reg-phone');
+    var phone2 = form.querySelector('#reg-phone2');
+    var errorBox = form.querySelector('.confirm-error');
+
+    if (email1 && email2 && phone1 && phone2) {
+      var emailsMatch = email1.value.trim().toLowerCase() === email2.value.trim().toLowerCase();
+      var digitsOnly = function (v) { return v.replace(/\D/g, ''); };
+      var phonesMatch = digitsOnly(phone1.value) === digitsOnly(phone2.value);
+
+      if (!emailsMatch || !phonesMatch) {
+        if (errorBox) {
+          if (!emailsMatch && !phonesMatch) {
+            errorBox.textContent = 'Your Email Address and Text Number do not match their confirmation fields below them. Please check both and try again.';
+          } else if (!emailsMatch) {
+            errorBox.textContent = 'Your Email Address and Confirm Email Address do not match. Please check and try again.';
+          } else {
+            errorBox.textContent = 'Your Text Number and Confirm Text Number do not match. Please check and try again.';
+          }
+          errorBox.style.display = 'block';
+          errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        (!emailsMatch ? email2 : phone2).focus();
+        return;
+      }
+
+      if (errorBox) {
+        errorBox.style.display = 'none';
+      }
+    }
+
     var data = new URLSearchParams(new FormData(form)).toString();
     fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data })
       .then(function(){
