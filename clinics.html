@@ -76,7 +76,7 @@
 </div>
 
 <script>
-document.querySelectorAll('form[data-netlify]').forEach(function(form){
+document.querySelectorAll('form[name]').forEach(function(form){
                                                                   form.addEventListener('submit', function(e){
                                                                                              e.preventDefault();
                                                                                              var data = new URLSearchParams(new FormData(form)).toString();
