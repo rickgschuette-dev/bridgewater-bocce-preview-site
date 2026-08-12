@@ -43,6 +43,7 @@
         <label class="gate-question">Are you interested and committed to playing in the Fall 2026 Recreational Bocce League? Fill out this entry form.</label>
         <div class="checkbox-row" style="margin-bottom:0;">
           <label><input type="radio" id="q1-yes" name="Interested in Fall League" value="Yes" required> Yes</label>
+          <label><input type="radio" id="q1-already" name="Interested in Fall League" value="Yes - Already Registered" required> Yes, I have already registered</label>
           <label><input type="radio" id="q1-no" name="Interested in Fall League" value="No" required> No</label>
         </div>
       </div>
@@ -74,6 +75,12 @@
           </div>
         </div>
 
+        <button type="submit" class="submit-btn">Submit</button>
+      </div>
+
+      <div id="sec-already-registered" class="form-block green" style="display:none;">
+        <h2>You're all set</h2>
+        <p style="font-size:14px;color:#2c5c2c;margin:-10px 0 18px;">Since you've already registered on the League Registration page, there's nothing more to do here &mdash; we just needed to hear from you. Click Submit below and you're finished.</p>
         <button type="submit" class="submit-btn">Submit</button>
       </div>
 
@@ -184,6 +191,19 @@ function setSectionEnabled(id, on) {
 
 document.getElementById('q1-yes').addEventListener('change', function () {
   setSectionEnabled('sec-player', true);
+  setSectionEnabled('sec-already-registered', false);
+  document.getElementById('sec-not-playing').style.display = 'none';
+  document.getElementById('q2-yes').disabled = true;
+  document.getElementById('q2-no').disabled = true;
+  document.getElementById('q2-yes').checked = false;
+  document.getElementById('q2-no').checked = false;
+  setSectionEnabled('sec-decline', false);
+  setSectionEnabled('sec-sub', false);
+});
+
+document.getElementById('q1-already').addEventListener('change', function () {
+  setSectionEnabled('sec-player', false);
+  setSectionEnabled('sec-already-registered', true);
   document.getElementById('sec-not-playing').style.display = 'none';
   document.getElementById('q2-yes').disabled = true;
   document.getElementById('q2-no').disabled = true;
@@ -195,6 +215,7 @@ document.getElementById('q1-yes').addEventListener('change', function () {
 
 document.getElementById('q1-no').addEventListener('change', function () {
   setSectionEnabled('sec-player', false);
+  setSectionEnabled('sec-already-registered', false);
   document.getElementById('sec-not-playing').style.display = 'block';
   document.getElementById('q2-yes').disabled = false;
   document.getElementById('q2-no').disabled = false;
