@@ -51,32 +51,13 @@
       <p>We will contact you with further information as we draw closer to the start of the clinic.</p>
     </div>
 
-    <div style="height:36px;"></div><h1 class="page-title" style="color:#b8901a;">Street Brawl Tournament for Beginners</h1><p style="font-size:16px;line-height:1.6;margin:0 0 6px;">This tournament is open ONLY to new and very inexperienced players.</p><p style="font-size:19px;font-weight:800;color:#7a5c00;line-height:1.5;margin:0 0 20px;">Bracket Rounds Saturday, Sept 26th · Championship Match Sunday, Sept 27th</p><form class="form-block yellow" name="street-brawl-registration" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-thankyou="ty-brawl">
-      <input type="hidden" name="form-name" value="street-brawl-registration">
-      <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
-      <h2>Street Brawl Tournament Registration</h2>
-      <label for="sb-name">Full Name</label>
-      <input type="text" id="sb-name" name="Full Name" required="">
-      <label for="sb-phone">Text Number</label>
-      <input type="tel" id="sb-phone" name="Text Number" required="">
-      <label for="sb-email">Email Address</label>
-      <input type="email" id="sb-email" name="Email Address" required="">
-      <label for="sb-street">Street You Live On</label>
-      <input type="text" id="sb-street" name="Street" required="">
-      <button type="submit" class="submit-btn">Submit</button>
-    </form>
-    <div class="thank-you" id="ty-brawl">
-      <h2>Thank You!</h2>
-      <p>We will contact you with further information as we draw closer to the tournament.</p>
-    </div>
-
     <div class="home-link-row"><a href="/">HOME</a></div>
   </div>
 
 </div>
 
 <script>
-document.querySelectorAll('form[name]').forEach(function(form){
+document.querySelectorAll('form[data-netlify]').forEach(function(form){
                                                                   form.addEventListener('submit', function(e){
                                                                                              e.preventDefault();
                                                                                              var data = new URLSearchParams(new FormData(form)).toString();
